@@ -1,18 +1,19 @@
 #pragma once
-#include <glm/glm.hpp>
-#include "entity.h"
 
-class Square
+#include <GL/glew.h>
+#include <glm/glm.hpp>
+#include "mesh.h"
+
+class Rectangle : public Mesh
 {
   public:
-    Square();
-    ~Square();
+    Rectangle();
+    ~Rectangle();
     void Init(float x, float y, float width, float height);
     void SetPos(float x, float y);
-    void Draw();
+  
   private:
+    enum { LB, LT, RT, RB };
     float mX, mY, mWidth, mHeight;
-    bool mDirty;
     void Update();
-    GLuint mVB0, mVAO;
 };
